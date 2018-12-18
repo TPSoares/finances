@@ -6,13 +6,15 @@
             
             );
 
+            
+
             $this->loadTemplate("home", $data);
 
         }
 
-        public function teste() {
+        public function signup() {
 
-            echo "FELADAPOUTA";
+            echo "FELADAPUTA";
 
         }
     }

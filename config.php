@@ -4,14 +4,14 @@
     $config = array();
 
     if(ENVIRONMENT == "development") {
-        define("BASE_URL", "http://localhost/mvc_structure/");
-        $config["dbname"] = "teste";
+        define("BASE_URL", "http://localhost/finances/");
+        $config["dbname"] = "finances";
         $config["host"] = "localhost";
         $config["dbuser"] = "tenodar";
         $config["dbpass"] = "teste";
     } else {
-        define("BASE_URL", "http://localhost/mvc_structure/");
-        $config["dbname"] = "teste";
+        define("BASE_URL", "http://localhost/finances/");
+        $config["dbname"] = "finances";
         $config["host"] = "localhost";
         $config["dbuser"] = "tenodar";
         $config["dbpass"] = "teste";

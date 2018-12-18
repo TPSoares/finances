@@ -1,6 +1,11 @@
 <?php
     session_start();
+    // session_destroy();
     require "config.php";
+
+    ini_set('display_errors', 'On');
+    ini_set('html_errors', 0);
+    
 
     spl_autoload_register(function($class) {
         

@@ -9,5 +9,11 @@
             $this->loadTemplate("home", $data);
 
         }
+
+        public function teste() {
+
+            echo "FELADAPOUTA";
+
+        }
     }
 ?>

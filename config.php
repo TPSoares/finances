@@ -4,17 +4,17 @@
     $config = array();
 
     if(ENVIRONMENT == "development") {
-        define("BASE_URL", "yourbaseurl");
-        $config["dbname"] = "yourdbname";
-        $config["host"] = "yourhost";
-        $config["dbuser"] = "yourdbuser";
-        $config["dbpass"] = "yourdbpass";
+        define("BASE_URL", "http://localhost/mvc_structure/");
+        $config["dbname"] = "teste";
+        $config["host"] = "localhost";
+        $config["dbuser"] = "tenodar";
+        $config["dbpass"] = "teste";
     } else {
-        define("BASE_URL", "yourbaseurl");
-        $config["dbname"] = "yourdbname";
-        $config["host"] = "yourhost";
-        $config["dbuser"] = "yourdbuser";
-        $config["dbpass"] = "yourdbpass";
+        define("BASE_URL", "http://localhost/mvc_structure/");
+        $config["dbname"] = "teste";
+        $config["host"] = "localhost";
+        $config["dbuser"] = "tenodar";
+        $config["dbpass"] = "teste";
     }
 
     global $db;

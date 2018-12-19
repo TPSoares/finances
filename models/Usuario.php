@@ -36,4 +36,30 @@ class Usuario extends model {
             // die();
         }
     }
+
+    public function get($id) {
+
+        $array = array();
+
+        $sql = "SELECT * FROM user WHERE id = :id";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+
+            $array = $sql->fetch();
+        }
+
+        return $array;
+    }
+
+    public function edit($id, $nome, $email) {
+        $sql = "UPDATE user SET nome = :nome, email = :email WHERE id = :id";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->bindValue(":nome", $nome);
+        $sql->bindValue(":email", $email);
+        $sql->execute();
+    }
 }

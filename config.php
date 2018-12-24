@@ -7,14 +7,14 @@
         define("BASE_URL", "http://localhost/finances/");
         $config["dbname"] = "finances";
         $config["host"] = "localhost";
-        $config["dbuser"] = "tenodar";
-        $config["dbpass"] = "teste";
+        $config["dbuser"] = "root";
+        $config["dbpass"] = "root";
     } else {
         define("BASE_URL", "http://localhost/finances/");
         $config["dbname"] = "finances";
         $config["host"] = "localhost";
-        $config["dbuser"] = "tenodar";
-        $config["dbpass"] = "teste";
+        $config["dbuser"] = "root";
+        $config["dbpass"] = "root";
     }
 
     global $db;

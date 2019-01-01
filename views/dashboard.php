@@ -1,7 +1,3 @@
-<?php 
-  echo $despesas["paginator"]["totalPages"];
-?>
-
 
 <nav class="navbar navbar-light bg-light justify-content-end">
 <p class="navbar-nav mr-auto mt-2 mt-lg-0">Olá, <?php echo $info["nome"]; ?></p>

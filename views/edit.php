@@ -10,4 +10,6 @@
     </div>
 
     <input type="submit" value="Editar" class="btn btn-primary" />
+    <a href="<?php echo BASE_URL; ?>dashboard" class="btn btn-danger">Cancel</a>
+
 </form>

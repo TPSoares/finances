@@ -11,16 +11,16 @@
             
             );
 
-            if(!empty($_POST["descricao"]) && !empty($_POST["valor"]) && !empty($_POST["despesa"]) && !empty($_POST["postedDate"])) {
+            if(!empty($_POST["descricao"]) && !empty($_POST["valor"]) && !empty($_POST["despesa"]) && !empty($_POST["postedDate"]) && !empty($_POST["categoria"])) {
                 $descricao = $_POST["descricao"];
                 $valor = $_POST["valor"];
                 $despesa = $_POST["despesa"];
                 $postedDate = $_POST["postedDate"];
-             
+                $categoria = $_POST["categoria"];
                 
                 //$despesa = $_POST["despesa"];
                 $despesas = new Despesa();
-                $despesas->create($descricao, $valor, $despesa, $postedDate);
+                $despesas->create($descricao, $valor, $despesa, $postedDate, $categoria);
 
                 header("Location: " . BASE_URL . "dashboard");
             }
@@ -30,13 +30,14 @@
             $array = array();
             $despesas = new Despesa();
 
-            if(!empty($_POST["descricao"]) && !empty($_POST["valor"]) && !empty($_POST["despesa"]) && !empty($_POST["postedDate"])) {
+            if(!empty($_POST["descricao"]) && !empty($_POST["valor"]) && !empty($_POST["despesa"]) && !empty($_POST["postedDate"]) && !empty($_POST["categoria"])) {
                 $descricao = $_POST["descricao"];
                 $valor = $_POST["valor"];
                 $despesa = $_POST["despesa"];
                 $postedDate = $_POST["postedDate"];
+                $categoria = $_POST["categoria"];
 
-                $despesas->edit($id, $descricao, $valor, $despesa, $postedDate);
+                $despesas->edit($id, $descricao, $valor, $despesa, $postedDate, $categoria);
             } else {
                 $array["despesasInfo"] = $despesas->get($id);
 

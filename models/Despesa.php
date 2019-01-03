@@ -1,19 +1,20 @@
 <?php
 
 class Despesa extends model {
-    public function create($descricao, $valor, $despesa, $postedDate) {
+    public function create($descricao, $valor, $despesa, $postedDate, $categoria) {
 
         $array = array();
 
         $id = $_SESSION["id"];
 
-        $sql = "INSERT INTO financas (descricao, valor, userId, despesa, postedDate) 
-                VALUES (:descricao, :valor, :userId, :despesa, :postedDate)";
+        $sql = "INSERT INTO financas (descricao, valor, userId, despesa, postedDate, categoria) 
+                VALUES (:descricao, :valor, :userId, :despesa, :postedDate, :categoria)";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":descricao", $descricao);
         $sql->bindValue(":valor", $valor);
         $sql->bindValue(":despesa", $despesa);
         $sql->bindValue(":postedDate", $postedDate);
+        $sql->bindValue(":categoria", $categoria);
         $sql->bindValue(":userId", $id);
         $sql->execute();
     }
@@ -41,7 +42,12 @@ class Despesa extends model {
 
             $totalRows = $sql->rowCount();
             $totalPages = ceil($totalRows / $no_of_records_per_page);
-
+            $array["total"] = $sql->fetchAll();
+            
+        } else {
+            $totalRows = 0;
+            $totalPages = 0;
+            $array["total"] = 0;
         }
         
         //query to filter number of returned results
@@ -54,6 +60,8 @@ class Despesa extends model {
 
             $array["info"] = $sql->fetchAll();
 
+        } else {
+            $array["info"] = 0;
         }
 
         $paginationInfo = [
@@ -85,14 +93,15 @@ class Despesa extends model {
         return $array;
     }
 
-    public function edit($id, $descricao, $valor, $despesa, $postedDate) {
-        $sql = "UPDATE financas SET descricao = :descricao, valor = :valor, despesa = :despesa, postedDate = :postedDate WHERE id = :id";
+    public function edit($id, $descricao, $valor, $despesa, $postedDate, $categoria) {
+        $sql = "UPDATE financas SET descricao = :descricao, valor = :valor, despesa = :despesa, postedDate = :postedDate, categoria = :categoria WHERE id = :id";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":id", $id);
         $sql->bindValue(":descricao", $descricao);
         $sql->bindValue(":valor", $valor);
         $sql->bindValue(":despesa", $despesa);
         $sql->bindValue(":postedDate", $postedDate);
+        $sql->bindValue(":categoria", $categoria);
         $sql->execute();
     }
 

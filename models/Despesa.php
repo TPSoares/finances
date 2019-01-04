@@ -43,6 +43,7 @@ class Despesa extends model {
             $totalRows = $sql->rowCount();
             $totalPages = ceil($totalRows / $no_of_records_per_page);
             $array["total"] = $sql->fetchAll();
+            // $array["json"] = json_encode($array["total"]);
             
         } else {
             $totalRows = 0;

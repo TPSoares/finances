@@ -7,6 +7,10 @@ class profileController extends controller {
         $usuario = new Usuario();
        
         if(isset($_SESSION["id"]) && !empty($_SESSION["id"])) {
+
+            $despesas = new Despesa();
+                
+            $data["despesas"] = $despesas->read($_SESSION["id"]);
            
             $data["info"] = $usuario->get($_SESSION["id"]);
             $this->loadTemplate("profile", $data);

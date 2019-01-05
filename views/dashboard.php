@@ -12,7 +12,6 @@
       if($despesas["info"] != 0) {
     ?>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Descrição</th>
       <th scope="col">Valor</th>
       <th scope="col">Despesa/Receita</th>
@@ -25,7 +24,6 @@
       foreach ($despesas["info"] as $d) {
         ?>
         <tr>
-          <td><?php echo $d["id"] ?></td>
           <td><?php echo $d["descricao"] ?></td>
           <td><?php echo "R$ " . $d["valor"] ?></td>
           <td><?php echo $d["despesa"] ?></td>
@@ -35,7 +33,10 @@
           <td><a href="<?php echo BASE_URL; ?>despesas/delete/<?php echo $d["id"]; ?>" class="btn btn-outline-danger" type="button">Deletar</a></td>
 
         </tr>
-        
+        <?php
+  //endif if despesas["info"] != 0
+      }
+      ?>
   </tbody>
 </table>
 
@@ -57,8 +58,6 @@
 </div>
 
 <?php
-  //endif if despesas["info"] != 0
-      }
     } else {
       ?>
 

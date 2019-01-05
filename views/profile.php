@@ -10,7 +10,7 @@
     </div>
     <div class="container">
         <div id="graficoPizza" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
-            <canvas id="mycanvas"></canvas>
+            <canvas id="mycanvas" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></canvas>
         </div>
 
         <h3>Despesas</h3>
@@ -29,7 +29,7 @@
             </thead>
             <tbody>
                 <?php
-                foreach ($despesas["info"] as $d) {
+                foreach ($despesas["total"] as $d) {
                     ?>
                 <tr>
                     <td><?php echo $d["descricao"] ?></td>
@@ -69,8 +69,3 @@
         <p>Total: <?php echo $totalFinances; ?> </p>
     </div>
 </div>
-
-<?php 
-    $despesasData = json_encode($despesas["info"]);
-    echo $despesasData;
-?>

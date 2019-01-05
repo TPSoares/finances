@@ -1,20 +1,68 @@
 <?php
 
 class Despesa extends model {
+
+    public function colorCategory($categoria) {
+        switch ($categoria) {
+            case "Alimentação":
+                return "#ff0000";
+                break;
+
+            case "Saúde":
+                return "#33ff33";
+                break;
+
+            case "Lazer":
+                return "#0099ff";
+                break;
+
+            case "Educação":
+                return "#009933";
+                break;
+            
+            case "Moradia":
+                return "#cc3399";
+                break;
+            
+            case "Pagamentos":
+                return "#ff6600";
+                break;
+            
+            case "Roupa":
+                return "#9933ff";
+                break;
+            
+            case "Transporte":
+                return "#ffff4d";
+                break;
+
+            default:
+                return "#FFF";
+                break;
+        }
+    }  
+    
+    public function teste() {
+        echo "dota";
+    }
+
     public function create($descricao, $valor, $despesa, $postedDate, $categoria) {
 
         $array = array();
 
         $id = $_SESSION["id"];
 
-        $sql = "INSERT INTO financas (descricao, valor, userId, despesa, postedDate, categoria) 
-                VALUES (:descricao, :valor, :userId, :despesa, :postedDate, :categoria)";
+        $corCategoria = $this->colorCategory($categoria);
+       
+        $sql = "INSERT INTO financas (descricao, valor, userId, despesa, postedDate, categoria, corCategoria) 
+                VALUES (:descricao, :valor, :userId, :despesa, :postedDate, :categoria, :corCategoria)";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":descricao", $descricao);
         $sql->bindValue(":valor", $valor);
         $sql->bindValue(":despesa", $despesa);
         $sql->bindValue(":postedDate", $postedDate);
         $sql->bindValue(":categoria", $categoria);
+        $sql->bindValue(":corCategoria", $corCategoria);
         $sql->bindValue(":userId", $id);
         $sql->execute();
     }
@@ -94,8 +142,27 @@ class Despesa extends model {
         return $array;
     }
 
+    public function getJSON($id) {
+
+        $array = array();
+
+        $sql = "SELECT * FROM financas WHERE userId = :userId";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":userId", $id);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+
+        return $array;
+    }
+
     public function edit($id, $descricao, $valor, $despesa, $postedDate, $categoria) {
-        $sql = "UPDATE financas SET descricao = :descricao, valor = :valor, despesa = :despesa, postedDate = :postedDate, categoria = :categoria WHERE id = :id";
+
+        $corCategoria = $this->colorCategory($categoria);
+
+        $sql = "UPDATE financas SET descricao = :descricao, valor = :valor, despesa = :despesa, postedDate = :postedDate, categoria = :categoria, corCategoria = :corCategoria WHERE id = :id";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":id", $id);
         $sql->bindValue(":descricao", $descricao);
@@ -103,6 +170,7 @@ class Despesa extends model {
         $sql->bindValue(":despesa", $despesa);
         $sql->bindValue(":postedDate", $postedDate);
         $sql->bindValue(":categoria", $categoria);
+        $sql->bindValue(":corCategoria", $corCategoria);
         $sql->execute();
     }
 

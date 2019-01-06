@@ -16,22 +16,24 @@ $(function() {
 			//  };
 
             for(var i in data) {
-                categoria.push(data[i].categoria);
-				valor.push(data[i].valor);
-				color.push(data[i].corCategoria);
+				
+				categoria.push(data[i].categoria);
+				valor.push(data[i].total);
+				color.push(data[i].cor);
 			}
 
-            var chartdata = {
+			var chartdata = {
 				labels: categoria,
 				datasets : [
 					{
-						label: 'categoria',
+						label: 'Gastos em R$',
 						// backgroundColor: 'rgba(200, 200, 200, 0.75)',
 						backgroundColor: color,
 						borderColor: 'rgba(200, 200, 200, 0.75)',
 						hoverBackgroundColor: color,
 						hoverBorderColor: 'rgba(200, 200, 200, 1)',
-						data: valor
+						data: valor,
+						
 					}
 				]
 			};
@@ -39,8 +41,26 @@ $(function() {
 			var ctx = $("#mycanvas");
 
 			 var barGraph = new Chart(ctx, {
-			 	type: 'pie',
-			 	data: chartdata
+			 	type: 'bar',
+				data: chartdata,
+				options: {
+					scales: {
+						xAxes: [{
+							maxBarThickness: 100,
+							display: true,
+							
+						}],
+
+						yAxes: [{
+							display: true,
+							ticks: {
+								// suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+								// OR //
+								beginAtZero: true   // minimum value will be 0.
+							}
+						}]
+					}
+				}
 			 });
 		},
 		error: function(data) {

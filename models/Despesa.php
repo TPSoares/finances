@@ -5,39 +5,39 @@ class Despesa extends model {
     public function colorCategory($categoria) {
         switch ($categoria) {
             case "Alimentação":
-                return "#ff0000";
+                return "#e60000";
                 break;
-
-            case "Saúde":
-                return "#33ff33";
-                break;
-
-            case "Lazer":
-                return "#0099ff";
-                break;
-
+                
             case "Educação":
+                return "#e65c00";
+                break;
+                
+            case "Lazer":
+                return "#ffcc00";
+                break;
+
+            case "Moradia":
                 return "#009933";
                 break;
-            
-            case "Moradia":
-                return "#cc3399";
-                break;
-            
+                
             case "Pagamentos":
-                return "#ff6600";
+                return "#009973";
                 break;
             
             case "Roupa":
-                return "#9933ff";
+                return "#003399";
+                break;
+
+            case "Saúde":
+                return "#b300b3";
                 break;
             
             case "Transporte":
-                return "#ffff4d";
+                return "#ff0066";
                 break;
 
             default:
-                return "#FFF";
+                return "#cc0066";
                 break;
         }
     }  
@@ -146,7 +146,8 @@ class Despesa extends model {
 
         $array = array();
 
-        $sql = "SELECT * FROM financas WHERE userId = :userId";
+        // $sql = "SELECT * FROM financas WHERE userId = :userId";
+        $sql = "SELECT categoria, round(sum(valor), 2) as total, max(corCategoria) as cor FROM financas WHERE userId = :userId GROUP BY categoria";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":userId", $id);
         $sql->execute();

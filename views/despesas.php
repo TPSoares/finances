@@ -26,8 +26,8 @@
                 <label for="sel1">Selecione uma categoria:</label>
                 <select class="form-control" name="categoria" id="sel1">
                     <option>Alimentação</option>
-                    <option>Lazer</option>
                     <option>Educação</option>
+                    <option>Lazer</option>
                     <option>Moradia</option>
                     <option>Pagamentos</option>
                     <option>Roupa</option>

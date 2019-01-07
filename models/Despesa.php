@@ -142,6 +142,39 @@ class Despesa extends model {
         return $array;
     }
 
+    public function showCategory($id) {
+        $array = array();
+
+        $sql = "SELECT categoria FROM financas WHERE userId = :userId GROUP BY categoria";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":userId", $id);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+
+        return $array;
+
+    }
+
+    public function readCategory($id) {
+        $array = array();
+
+        $sql = "SELECT categoria FROM financas WHERE userId = :userId";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":userId", $id);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+
+        return $array;
+
+    }
+
+
     public function getJSON($id) {
 
         $array = array();

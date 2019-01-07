@@ -69,3 +69,17 @@ $(function() {
         }
     });
 });
+
+// function changeCategory() {
+// 	var selectedCategory = $("#sel1 option:selected").val();
+
+// 	$.ajax({ 
+// 		url: "http://localhost/finances/profile/category",
+// 		data: {"selectedCategory": selectedCategory},
+// 		type: "post",
+// 		success: function(output) {
+// 			$("#category").html(output);
+// 		}
+// 	});
+
+// }

@@ -11,6 +11,7 @@ class profileController extends controller {
             $despesas = new Despesa();
                 
             $data["despesas"] = $despesas->read($_SESSION["id"]);
+            $data["categorias"] = $despesas->showCategory($_SESSION["id"]);
            
             $data["info"] = $usuario->get($_SESSION["id"]);
             $this->loadTemplate("profile", $data);
@@ -63,5 +64,29 @@ class profileController extends controller {
 
 
     }
+
+    public function category() {
+        header('Content-Type: application/json');
+
+        $data = array();
+        $usuario = new Usuario();
+       
+        if(isset($_SESSION["id"]) && !empty($_SESSION["id"])) {
+
+            $despesas = new Despesa();
+            
+            $info = $despesas->readCategory($_SESSION["id"]);
+            $data = json_encode($despesas->readCategory($_SESSION["id"]), JSON_PRETTY_PRINT);
+           
+            print $data;
+
+        } else {
+            $this->loadTemplate("home", $data);
+            
+        }
+
+
+    }
+
 
 }

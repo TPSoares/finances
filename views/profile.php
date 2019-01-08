@@ -14,16 +14,16 @@
         </div>
 
         <h3>Despesas</h3>
-        <!-- <form action="<?php // echo BASE_URL; ?>profile" method="POST"> -->
+        <form action="<?php echo BASE_URL; ?>profile" method="POST">
             <label id="category" for="sel1">Selecione uma categoria:</label>
                     <!-- <select class="form-control" name="ca" id="sel1" onchange="this.form.submit();"> -->
-                    <select class="form-control" name="ca" id="sel1">
+                    <select class="form-control" name="selectedCategory" id="sel1">
                         <option>Todas</option>
                         
                         <?php
                             foreach ($categorias as $c) {
                         ?>
-                                <option  value="<?php echo $c; ?>"><?php echo $c["categoria"] ?></option>
+                                <option  value="<?php echo $c["categoria"]; ?>"><?php echo $c["categoria"] ?></option>
                         <?php
                             }
                         ?>
@@ -43,7 +43,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($despesas["total"] as $d) {
+                    foreach ($selectedCategories as $d) {
                         ?>
                     <tr>
                         <td><?php echo $d["descricao"] ?></td>
@@ -81,6 +81,9 @@
             
             ?>
             <p>Total: <?php echo $totalFinances; ?> </p>
-        <!-- </form> -->
+
+            <input type="submit" class="btn btn-outline-success" value="Filtrar categoria"/>
+
+        </form>
     </div>
 </div>

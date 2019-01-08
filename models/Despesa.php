@@ -158,14 +158,26 @@ class Despesa extends model {
 
     }
 
-    public function readCategory($id) {
+    public function readCategory($id, $categoria) {
         $array = array();
 
-        $sql = "SELECT categoria FROM financas WHERE userId = :userId";
-        $sql = $this->db->prepare($sql);
-        $sql->bindValue(":userId", $id);
-        $sql->execute();
+       
+        if($categoria == "Todas") {
+            $sql = "SELECT * FROM financas WHERE userId = :userId";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":userId", $id);
+            $sql->execute();
+    
+        } else {
+    
+            $sql = "SELECT * FROM financas WHERE userId = :userId AND categoria = :categoria";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(":userId", $id);
+            $sql->bindValue(":categoria", $categoria);
+            $sql->execute();
 
+        }
+       
         if($sql->rowCount() > 0) {
             $array = $sql->fetchAll();
         }

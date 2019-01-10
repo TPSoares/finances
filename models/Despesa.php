@@ -41,10 +41,6 @@ class Despesa extends model {
                 break;
         }
     }  
-    
-    public function teste() {
-        echo "dota";
-    }
 
     public function create($descricao, $valor, $despesa, $postedDate, $categoria) {
 

@@ -2,12 +2,15 @@
     <a href="<?php echo BASE_URL; ?>dashboard/edit/<?php echo $_SESSION["id"]; ?>" class="btn btn-outline-success" type="button">Editar Perfil</a>
     <a href="<?php echo BASE_URL; ?>dashboard" class="btn btn-outline-secondary" type="button">Voltar</a>
 </nav>
-
+<!-- Main div -->
 <div class="d-flex justify-content-around">
+<!-- User info on the left side -->
     <div class="container">
         <h3><?php echo $info["nome"]; ?></h3>
         <p><?php echo $info["email"]; ?></p>
     </div>
+<!-- End User info on the left side -->
+<!-- Chart -->
     <div class="container">
         <label id="chartLabel" for="chart">Selecione uma categoria:</label>
         <select class="form-control" name="selectedChart" id="chart" onchange="changeChart(); teste()">
@@ -21,6 +24,8 @@
             <canvas id="mycanvas" style="min-width: 310px; min-height: 310px; max-width: 600px; margin: 0 auto"></canvas>
         </div>
 
+<!-- End Chart -->
+<!-- Finances -->
         <h3>Despesas</h3>
         <form action="<?php echo BASE_URL; ?>profile" method="POST">
             <label id="category" for="sel1">Selecione uma categoria:</label>
@@ -30,17 +35,17 @@
                         
                         <?php
                             foreach ($categorias as $c) {
-                        ?>
+                                ?>
                                 <option  value="<?php echo $c["categoria"]; ?>"><?php echo $c["categoria"] ?></option>
                         <?php
                             }
-                        ?>
+                            ?>
                     </select>
             <table class="table">
                 <thead>
                     <?php
                     if($despesas["info"] != 0) {
-                    ?>
+                        ?>
                     <tr>
                         <th scope="col">Descrição</th>
                         <th scope="col">Valor</th>
@@ -62,14 +67,14 @@
                     </tr>
                     <?php
             //endif if despesas["info"] != 0
-                    }
-                    ?>
+        }
+        ?>
                 </tbody>
             </table>
 
                 <?php
                 } else {
-                ?>
+                    ?>
 
                 <div class="d-flex justify-content-center">
                     <p>Você ainda não possui despesas. Comece adicionando uma.</p>
@@ -83,7 +88,7 @@
             $totalFinances = 0;
             if($despesas["total"] != 0) {
                 foreach ($despesas["total"] as $total) {
-                $totalFinances += $total["valor"];
+                    $totalFinances += $total["valor"];
                 } 
             }
             
@@ -94,4 +99,5 @@
 
         </form>
     </div>
+<!-- End Finances -->
 </div>

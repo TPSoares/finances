@@ -17,11 +17,11 @@
                 
                 $usuario->read($email, $senha);
                 //Leitura de todas as despesas por usuário
-                $despesas = new Despesa();
                 
-                $data["despesas"] = $despesas->read($_SESSION["id"]);
-
+                
                 if(isset($_SESSION["id"]) && !empty($_SESSION["id"])) {
+                    $despesas = new Despesa();
+                    $data["despesas"] = $despesas->read($_SESSION["id"]);
                     $data["info"] = $usuario->get($_SESSION["id"]);
                     
                     $this->loadTemplate("dashboard", $data);

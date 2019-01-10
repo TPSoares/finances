@@ -3,7 +3,6 @@
 class profileController extends controller {
     public function index() {
 
-
         $data = array();
         $usuario = new Usuario();
        
@@ -13,10 +12,11 @@ class profileController extends controller {
                 
             $data["despesas"] = $despesas->read($_SESSION["id"]);
             $data["categorias"] = $despesas->showCategory($_SESSION["id"]);
-            $data["selectedCategories"] = $despesas->readCategory($_SESSION["id"], $_POST["selectedCategory"]);
+            $data["selectedCategories"] = $despesas->readCategory($_SESSION["id"]);
            
             $data["info"] = $usuario->get($_SESSION["id"]);
             $this->loadTemplate("profile", $data);
+            
         
         } else {
             $this->loadTemplate("home", $data);

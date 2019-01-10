@@ -158,18 +158,18 @@ class Despesa extends model {
 
     }
 
-    public function readCategory($id, $categoria) {
+    public function readCategory($id) {
         $array = array();
 
        
-        if($categoria == "Todas") {
+        if(!isset($_POST["selectedCategory"]) || $_POST["selectedCategory"] == "Todas") {
             $sql = "SELECT * FROM financas WHERE userId = :userId";
             $sql = $this->db->prepare($sql);
             $sql->bindValue(":userId", $id);
             $sql->execute();
     
         } else {
-    
+            $categoria = $_POST["selectedCategory"];
             $sql = "SELECT * FROM financas WHERE userId = :userId AND categoria = :categoria";
             $sql = $this->db->prepare($sql);
             $sql->bindValue(":userId", $id);

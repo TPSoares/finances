@@ -55,6 +55,7 @@ class Usuario extends model {
     }
 
     public function edit($id, $nome, $email) {
+
         $sql = "UPDATE user SET nome = :nome, email = :email WHERE id = :id";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":id", $id);

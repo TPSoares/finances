@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light bg-light justify-content-end">
-    <a href="<?php echo BASE_URL; ?>dashboard/edit/<?php echo $_SESSION["id"]; ?>" class="btn btn-outline-success" type="button">Editar Perfil</a>
+    <a href="<?php echo BASE_URL; ?>dashboard/edit" class="btn btn-outline-success" type="button">Editar Perfil</a>
     <a href="<?php echo BASE_URL; ?>dashboard" class="btn btn-outline-secondary" type="button">Voltar</a>
 </nav>
 <!-- Main div -->

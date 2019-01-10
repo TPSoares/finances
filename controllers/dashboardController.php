@@ -45,9 +45,11 @@
             }
         }
 
-        public function edit($id) {
+        public function edit() {
 
+            
             $array = array();
+            $id = $_SESSION["id"];
             $usuario = new Usuario();
                 
             if(!empty($_POST["nome"]) && !empty($_POST["email"])) {

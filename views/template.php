@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="">
 
 </head>
-<body>
+<body onload="teste()">
 
     <!-- <h1>Template</h1> -->
     <?php $this->loadViewInTemplate($viewName, $viewData) ?>

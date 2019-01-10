@@ -9,8 +9,16 @@
         <p><?php echo $info["email"]; ?></p>
     </div>
     <div class="container">
-        <div id="graficoPizza" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
-            <canvas id="mycanvas" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></canvas>
+        <label id="chartLabel" for="chart">Selecione uma categoria:</label>
+        <select class="form-control" name="selectedChart" id="chart" onchange="changeChart(); teste()">
+            <option value="bar">Barra</option>
+            <option value="pie">Pizza</option>
+            <option value="doughnut">Rosquinha</option>
+            <!-- <option value="radar">Radar</option> -->
+            <option value="polarArea">Polar area</option>
+        </select>
+        <div id="graficoPizza" style="min-width: 310px; min-height: 350px; max-width: 600px; margin: 0 auto">
+            <canvas id="mycanvas" style="min-width: 310px; min-height: 310px; max-width: 600px; margin: 0 auto"></canvas>
         </div>
 
         <h3>Despesas</h3>

@@ -1,4 +1,19 @@
-$(function() {
+var newGraph;
+
+function changeChart() {
+
+	var selectedChart = $("#chart option:selected").val();
+
+	console.log("selectedChart", selectedChart);
+	return selectedChart;
+
+}
+
+function teste() {
+
+
+	if(newGraph) newGraph.destroy();
+
     $.ajax({
         url: "http://localhost/finances/profile/data",
         method: "GET",
@@ -7,7 +22,8 @@ $(function() {
             var categoria = [];
 			var valor = [];
 			var color = [];
-
+			var selectedChart = "bar";
+			
 			// var dynamicColors = function() {
 			// 	var r = Math.floor(Math.random() * 255);
 			// 	var g = Math.floor(Math.random() * 255);
@@ -22,6 +38,7 @@ $(function() {
 				color.push(data[i].cor);
 			}
 
+			selectedChart = changeChart();
 			var chartdata = {
 				labels: categoria,
 				datasets : [
@@ -40,8 +57,8 @@ $(function() {
 
 			var ctx = $("#mycanvas");
 
-			 var barGraph = new Chart(ctx, {
-			 	type: 'bar',
+			newGraph = new Chart(ctx, {
+			 	type: selectedChart,
 				data: chartdata,
 				options: {
 					scales: {
@@ -62,24 +79,13 @@ $(function() {
 					}
 				}
 			 });
+			 
+
+			
 		},
 		error: function(data) {
 			console.log(data);
 		
         }
     });
-});
-
-// function changeCategory() {
-// 	var selectedCategory = $("#sel1 option:selected").val();
-
-// 	$.ajax({ 
-// 		url: "http://localhost/finances/profile/category",
-// 		data: {"selectedCategory": selectedCategory},
-// 		type: "post",
-// 		success: function(output) {
-// 			$("#category").html(output);
-// 		}
-// 	});
-
-// }
+};

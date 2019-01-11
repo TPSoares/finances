@@ -10,11 +10,11 @@
         $config["dbuser"] = "root";
         $config["dbpass"] = "root";
     } else {
-        define("BASE_URL", "http://minhasfinancas.webdev-solutions.com/");
-        $config["dbname"] = "u500688611_fncs";
+        define("BASE_URL", "http://localhost/finances/");
+        $config["dbname"] = "finances";
         $config["host"] = "localhost";
-        $config["dbuser"] = "u500688611_admin";
-        $config["dbpass"] = "admin00";
+        $config["dbuser"] = "root";
+        $config["dbpass"] = "root";
     }
 
     global $db;

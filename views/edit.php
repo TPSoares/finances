@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container wrapper">
     <div class="row justify-content-center">
-        <div class="col-4">
+        <div class="col-sm-12">
             <form method="POST">
                 <div class="form-group">
                     <label>Nome:</label>

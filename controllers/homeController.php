@@ -7,7 +7,7 @@
             );
 
             
-
+            $data["erro"] = 0;
             $this->loadTemplate("home", $data);
 
         }

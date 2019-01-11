@@ -1,7 +1,19 @@
-
-<div class="container">
+<div class="container wrapper">
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-sm-12">
+            <?php if($erro == 1) { 
+                ?>
+                <div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                    <strong>Email e/ou senha incorretos!
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                    <span aria-hidden='true'>&times;</span>
+                    </button>
+                </div>
+            <?php
+            $erro = 0;
+            }
+            ?>
+
             <form method="POST" action="<?php echo BASE_URL; ?>dashboard">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>

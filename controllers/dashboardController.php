@@ -23,9 +23,34 @@
                     $despesas = new Despesa();
                     $data["despesas"] = $despesas->read($_SESSION["id"]);
                     $data["info"] = $usuario->get($_SESSION["id"]);
+
+                    echo "
+                            <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                                <strong>Seja bem vindo!
+                                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                <span aria-hidden='true'>&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    ";
+
                     
                     $this->loadTemplate("dashboard", $data);
                 } else {
+                    
+                    echo "
+                    <div class='container'>
+                        <div class='row justify-content-center'>
+                            <div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                                <strong>Email e/ou senha incorretos!
+                                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                <span aria-hidden='true'>&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    ";
+
                     $this->loadTemplate("home", $data);
                     
                 }

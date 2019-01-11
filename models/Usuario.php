@@ -30,11 +30,10 @@ class Usuario extends model {
 
             $_SESSION["id"] = $array["id"];
             
-            
-
-            // print_r($_SESSION["id"]);
-            // die();
+ 
         }
+
+        return $array;
     }
 
     public function get($id) {

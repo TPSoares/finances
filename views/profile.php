@@ -3,7 +3,7 @@
     <a href="<?php echo BASE_URL; ?>dashboard" class="btn btn-outline-secondary" type="button">Voltar</a>
 </nav>
 <!-- Main div -->
-<div class="d-flex justify-content-around">
+<div class="container d-flex justify-content-around">
 <!-- User info on the left side -->
     <div class="container">
         <h3><?php echo $info["nome"]; ?></h3>
@@ -20,8 +20,8 @@
             <!-- <option value="radar">Radar</option> -->
             <option value="polarArea">Polar area</option>
         </select>
-        <div id="graficoPizza" style="min-width: 310px; min-height: 350px; max-width: 600px; margin: 0 auto">
-            <canvas id="mycanvas" style="min-width: 310px; min-height: 310px; max-width: 600px; margin: 0 auto"></canvas>
+        <div id="graficoPizza" style="min-width: 310px; min-height: 350px; max-width: 500px; margin: 0 auto">
+            <canvas id="mycanvas" style="min-width: 310px; min-height: 310px; max-width: 500px; margin: 0 auto"></canvas>
         </div>
 
 <!-- End Chart -->

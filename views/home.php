@@ -1,6 +1,7 @@
+
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-4">
+        <div class="col-md-4">
             <form method="POST" action="<?php echo BASE_URL; ?>dashboard">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>

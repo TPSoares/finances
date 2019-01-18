@@ -4,17 +4,17 @@
     $config = array();
 
     if(ENVIRONMENT == "development") {
-        define("BASE_URL", "http://localhost/finances/");
-        $config["dbname"] = "finances";
-        $config["host"] = "localhost";
-        $config["dbuser"] = "root";
-        $config["dbpass"] = "root";
+        define("BASE_URL", "yourbaseurl");
+        $config["dbname"] = "yourdb";
+        $config["host"] = "yourhost";
+        $config["dbuser"] = "yourdbuser";
+        $config["dbpass"] = "yourdbpass";
     } else {
-        define("BASE_URL", "http://localhost/finances/");
-        $config["dbname"] = "finances";
-        $config["host"] = "localhost";
-        $config["dbuser"] = "root";
-        $config["dbpass"] = "root";
+        define("BASE_URL", "yourbaseurl");
+        $config["dbname"] = "yourdb";
+        $config["host"] = "yourhost";
+        $config["dbuser"] = "yourdbuser";
+        $config["dbpass"] = "yourdbpass";
     }
 
     global $db;
